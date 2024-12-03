@@ -46,7 +46,7 @@ jobs:
         # delete all artifacts except 
         find dist -type f ! -name 'EasyPunchCard_setup.exe' -delete
     
-    name: Upload build artifacts
+    - name: Upload build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: build-artifacts-${{ runner.os }}-${{ github.run_id }}
