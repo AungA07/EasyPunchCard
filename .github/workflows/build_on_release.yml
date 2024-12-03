@@ -44,7 +44,8 @@ jobs:
         iscc build_instructions/easypunchcard_setup_script.iss
 
         # delete all artifacts except 
-        find dist -type f ! -name 'EasyPunchCard_setup.exe' -delete
+        powershell -Command "Get-ChildItem 'dist' -File | Where-Object { $_.Name -ne 'EasyPunchCard_setup.exe' } | Remove-Item"
+
     
     - name: Upload build artifacts
       uses: actions/upload-artifact@v4
